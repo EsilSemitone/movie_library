@@ -1,0 +1,23 @@
+{
+  "name": "movie_library",
+  "version": "1.0.0",
+  "description": "simple app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EsilSemitone/movie_library.git"
+  },
+  "keywords": [
+    "movie",
+    "app"
+  ],
+  "author": "esil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EsilSemitone/movie_library/issues"
+  },
+  "homepage": "https://github.com/EsilSemitone/movie_library#readme"
+}
