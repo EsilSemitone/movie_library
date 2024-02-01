@@ -23,7 +23,6 @@ class App {
         const view = this.routes.find(obj => obj.path === location.hash).view;
         this.currentView = new view(this.globalState);
         this.currentView.render()
-        console.log(this.currentView)
     }
 }
 
