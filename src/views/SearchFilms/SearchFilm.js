@@ -1,6 +1,7 @@
 import onChange from "on-change";
 import { View } from "../../common/View.js";
 import { Header } from "../../components/header/header.js";
+import { CardList } from "../../components/cardList/cardList.js";
 
 export class SearchFilm extends View {
     constructor(globalState) {
@@ -10,13 +11,17 @@ export class SearchFilm extends View {
     }
 
     globalStateHook(path, value) {
-        return;
+        if (path == 'searchQueryResult' || path == 'loading') {
+            this.render()
+        }
     }
 
     render() {
+        this.app.innerHTML = '';
         this.setTitle('Поиск фильмов')
         const main = document.createElement('div');
         main.append(new Header(this.globalState).render())
+        main.append(new CardList(this.globalState).render())
         this.app.append(main)
     }
 }

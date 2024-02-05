@@ -3,7 +3,9 @@ import { SearchFilm } from "./views/SearchFilms/SearchFilm";
 class App {
 
     globalState = {
-        favorites: []
+        favorites: [],
+        loading: false,
+        searchQueryResult: []
     }
 
     routes = [

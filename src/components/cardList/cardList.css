@@ -1,0 +1,18 @@
+.card__list {
+    padding: 40px 20px;
+}
+
+.loading {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 25px;
+}
+
+.card_container__innner {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 300px)) ;
+    padding: 40px 20px;
+    gap: calc(3%);
+    align-items: center;
+    margin: 0 auto;
+}   

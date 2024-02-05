@@ -9,17 +9,32 @@ export class Header extends Component {
     }
 
     async search(event) {
+        console.log(event)
         const value = document.getElementById('search').value
 
         if (!value) {
             return;
         }
+        this.globalState.loading = true;
 
-        const response = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${value}`)
-        const {Response, Error, Search} = await response.json()
-        console.log(Response, Error, Search)
-
-
+        try {
+            const response = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${value}`);
+            this.globalState.loading = false;
+            const res = await response.json()
+            if (!res) {
+                return;
+            }
+    
+            if (res.Response == 'False') {
+                console.log(res.Error);
+                return;
+            }
+            this.globalState.searchQueryResult = res.Search;
+        }
+        catch {
+            throw new Error('ошибка при попытке сделать запрос на сервер')
+        }
+        
     }
 
     render() {
@@ -43,6 +58,10 @@ export class Header extends Component {
            </div>
         `
         this.el.querySelector('.search__icon').addEventListener('click', this.search.bind(this))
+        this.el.querySelector('#search').addEventListener('keydown',  (event) =>  {
+            if (event.key === "Enter") {
+                this.search.bind(this)()
+            }})
         return this.el;
     }
 

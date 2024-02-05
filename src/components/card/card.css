@@ -1,0 +1,26 @@
+.card {
+    position: relative;
+    background-color: rgb(50, 50, 50);
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:10px;
+    transition: bottom 1s ease;
+    bottom: 0px;
+    z-index: 1;
+}
+
+.card:hover {
+    transition: bottom 0.3s ease;
+    bottom: 10px;
+}
+
+.card__img {
+}
+
+.card__year {
+    margin-bottom: 40px;
+}
